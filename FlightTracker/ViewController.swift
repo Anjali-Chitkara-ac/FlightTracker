@@ -17,6 +17,7 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var toTxtField: UITextField!
     
+    @IBOutlet weak var statusLbl: UILabel!
     
     var flightNums = [String]()
     var flights = [Flight]()
@@ -84,9 +85,16 @@ class ViewController: UIViewController{
                     
                 }//end of for loop HGH TSN CPT PLZ
                 
-                print(someFlights)
-                seal.fulfill(someFlights)
-            
+                if(someFlights.count == 0){
+                    print("No flights scheduled for this route")
+                    self.statusLbl.text = "No flights scheduled for this route"
+                    //seal.reject("No flights scheduled for this route" as! Error)
+                }
+                else{
+                    self.statusLbl.text = ""
+                    print(someFlights)
+                    seal.fulfill(someFlights)
+                }
             }//end of AF responsE
         }
     }

@@ -71,6 +71,13 @@
                                     <segue destination="NrH-8E-Bc0" kind="show" identifier="SearchResults" id="WFU-Yf-7nP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQm-kS-3ff">
+                                <rect key="frame" x="61" y="547" width="290" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,6 +88,7 @@
                     <navigationItem key="navigationItem" id="NgY-aq-xR4"/>
                     <connections>
                         <outlet property="fromTxtField" destination="Bym-9x-eYB" id="X6w-5P-Eya"/>
+                        <outlet property="statusLbl" destination="BQm-kS-3ff" id="Qlw-eV-LCC"/>
                         <outlet property="toTxtField" destination="AyY-QG-6np" id="Ojd-BV-635"/>
                     </connections>
                 </viewController>
@@ -276,6 +284,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
