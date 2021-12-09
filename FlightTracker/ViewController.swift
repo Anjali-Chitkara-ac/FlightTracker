@@ -19,19 +19,19 @@ class ViewController: UIViewController{
     
     
     var flightNums = [String]()
+    var flights = [Flight]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    //let airportURL = "http://api.aviationstack.com/v1/airports?access_key="
     let flightsURL = "http://api.aviationstack.com/v1/flights?access_key="
     
-    let accessID = "599b97558da1bbfcb0d541104eb67434"
+    let accessID = "8777462eb877be66b89cd209bea9addc"
     
-    func getFlightNums() -> Promise<[String]>{
+    func getFlightNums() -> Promise<[Flight]>{
                 
-        return Promise<[String]>{ seal -> Void in
+        return Promise<[Flight]>{ seal -> Void in
             
             var departure = fromTxtField.text
             var arrival = toTxtField.text
@@ -52,6 +52,7 @@ class ViewController: UIViewController{
                 let allFlights = allFlightData["data"]
                 
                 var someArr = [String]()
+                var someFlights = [Flight]()
                 
                 for flight in allFlights{
                     var f = flight.1
@@ -63,16 +64,29 @@ class ViewController: UIViewController{
                         print(f)
                         //add flight to an arr
                         var flightNum = f["flight"]["iata"]
-                        print(flightNum)
+    
                         someArr.append(flightNum.rawValue as! String)
                         
+                        //create flight object
+                        let fl = Flight()
+                        fl.flightNumber = flightNum.stringValue
+                        fl.arrival = arr.stringValue
+                        fl.departure = dep.stringValue
+                        fl.status = f["flight_status"].stringValue
+                        fl.airlines = f["airline"]["name"].stringValue
+                        fl.scheduledArrivalTime = f["arrival"]["scheduled"].stringValue
+                        fl.estimatedArrivalTime = f["arrival"]["estimated"].stringValue
+                        fl.scheduledDepartureTime = f["departure"]["scheduled"].stringValue
+                        fl.estimatedDepartureTime = f["departure"]["estimated"].stringValue
+                        
+                        someFlights.append(fl)
                     }
                     
                 }//end of for loop HGH TSN CPT PLZ
                 
-                print(someArr)
-                seal.fulfill(someArr)
-                
+                print(someFlights)
+                seal.fulfill(someFlights)
+            
             }//end of AF responsE
         }
     }
@@ -85,7 +99,7 @@ class ViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         getFlightNums().done { flight in
-           self.flightNums.append(contentsOf: flight)
+           self.flights.append(contentsOf: flight)
         }
         .catch { error in
            print(error)
@@ -93,10 +107,13 @@ class ViewController: UIViewController{
         
         guard let searchVC = segue.destination as? SearchResultsViewController else {return}
         searchVC.flightNumbers = self.flightNums
+        searchVC.matchingFlights = self.flights
         
         print(searchVC.flightNumbers)
         self.flightNums.removeAll()
+        self.flights.removeAll()
     }
+
 
 }
 

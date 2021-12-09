@@ -12,37 +12,42 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tblView: UITableView!
     
     var flightNumbers : [String] = []
+    var matchingFlights : [Flight] = []
     
-//    let flightNumbers : [String]
-//
-//    init(flightNumbers : [String]){
-//        self.flightNumbers = flightNumbers
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    var flightDetails : Flight?
     
     override func viewDidLoad() {
-        print("IN 1")
         super.viewDidLoad()
-        print("IN 2")
         tblView?.delegate = self
         tblView?.dataSource = self
         
-        print("2")
-        print(flightNumbers)
+        //print(flightNumbers)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return flightNumbers.count
+        return matchingFlights.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = flightNumbers[indexPath.row]
+        //cell.textLabel?.text = flightNumbers[indexPath.row]
+        let flight = matchingFlights[indexPath.row]
+        
+        cell.textLabel?.text = "\(flight.flightNumber) \(flight.status)"
         return cell
+    }
+    
+    //for details page/segue
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        flightDetails = matchingFlights[indexPath.row]
+        performSegue(withIdentifier: "DetailsSegue", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier=="DetailsSegue"){
+            let detalisVC = segue.destination as! DetailsViewController
+            detalisVC.flightDetail = self.flightDetails
+        }
     }
 
 }
