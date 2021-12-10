@@ -65,9 +65,8 @@
                                     <segue destination="NrH-8E-Bc0" kind="show" identifier="SearchResults" id="WFU-Yf-7nP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQm-kS-3ff">
-                                <rect key="frame" x="61" y="547" width="290" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQm-kS-3ff">
+                                <rect key="frame" x="10" y="454" width="355" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
@@ -77,12 +76,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zJh-CG-Rs5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="4Uu-9i-SBR"/>
+                            <constraint firstItem="BQm-kS-3ff" firstAttribute="top" secondItem="bJx-Gt-gJ0" secondAttribute="bottom" constant="100" id="9Oh-9b-Iq3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bJx-Gt-gJ0" secondAttribute="trailing" constant="10" id="DTS-17-qYq"/>
                             <constraint firstItem="zJh-CG-Rs5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="Hus-aD-ldG"/>
+                            <constraint firstItem="BQm-kS-3ff" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="IGg-pa-hJH"/>
                             <constraint firstItem="bJx-Gt-gJ0" firstAttribute="top" secondItem="zJh-CG-Rs5" secondAttribute="bottom" constant="100" id="OOk-o0-aMo"/>
+                            <constraint firstItem="BQm-kS-3ff" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PcL-rt-rcS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zJh-CG-Rs5" secondAttribute="trailing" constant="10" id="TA0-Yw-V3t"/>
                             <constraint firstItem="bJx-Gt-gJ0" firstAttribute="top" secondItem="zJh-CG-Rs5" secondAttribute="bottom" constant="50" id="VGD-jX-Jii"/>
                             <constraint firstItem="bJx-Gt-gJ0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mkW-Rc-FYT"/>
+                            <constraint firstAttribute="trailing" secondItem="BQm-kS-3ff" secondAttribute="trailing" constant="10" id="rJ8-GQ-UgC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Flight Tracker" id="NgY-aq-xR4"/>
@@ -226,6 +229,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlL-8v-D1g">
+                                <rect key="frame" x="10" y="528" width="355" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nyR-SO-8ws"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -234,7 +243,9 @@
                             <constraint firstItem="Fr5-iZ-wEo" firstAttribute="centerX" secondItem="9bB-Kd-IM9" secondAttribute="centerX" id="2Nv-36-xKO"/>
                             <constraint firstItem="tnE-HR-WRW" firstAttribute="top" secondItem="RqM-yS-Te7" secondAttribute="bottom" constant="50" id="30M-ss-ZuZ"/>
                             <constraint firstItem="P98-ww-VsQ" firstAttribute="top" secondItem="W0n-KV-x6E" secondAttribute="bottom" constant="5" id="38c-hL-saB"/>
+                            <constraint firstItem="nyR-SO-8ws" firstAttribute="trailing" secondItem="OlL-8v-D1g" secondAttribute="trailing" constant="10" id="5MQ-Ll-83Y"/>
                             <constraint firstItem="W0n-KV-x6E" firstAttribute="leading" secondItem="nyR-SO-8ws" secondAttribute="leading" constant="20" id="Ag4-xy-aZn"/>
+                            <constraint firstItem="OlL-8v-D1g" firstAttribute="leading" secondItem="nyR-SO-8ws" secondAttribute="leading" constant="10" id="CIJ-pp-VMe"/>
                             <constraint firstItem="OLj-ub-faa" firstAttribute="leading" secondItem="nyR-SO-8ws" secondAttribute="leading" constant="10" id="EAh-iE-dtT"/>
                             <constraint firstItem="nyR-SO-8ws" firstAttribute="trailing" secondItem="xbI-zu-BZy" secondAttribute="trailing" constant="10" id="EbR-2V-yTV"/>
                             <constraint firstItem="xbI-zu-BZy" firstAttribute="leading" secondItem="nyR-SO-8ws" secondAttribute="leading" constant="10" id="J1a-U0-yBr"/>
@@ -250,6 +261,7 @@
                             <constraint firstItem="RqM-yS-Te7" firstAttribute="leading" secondItem="nyR-SO-8ws" secondAttribute="leading" constant="10" id="mDe-Aa-UNM"/>
                             <constraint firstItem="nyR-SO-8ws" firstAttribute="trailing" secondItem="OLj-ub-faa" secondAttribute="trailing" constant="10" id="mkX-oF-Iht"/>
                             <constraint firstItem="zK6-Wi-bZ0" firstAttribute="centerX" secondItem="9bB-Kd-IM9" secondAttribute="centerX" id="oT9-i4-NwS"/>
+                            <constraint firstItem="OlL-8v-D1g" firstAttribute="top" secondItem="7bh-8b-FBH" secondAttribute="bottom" constant="50" id="pJW-28-4m1"/>
                             <constraint firstItem="ltN-mD-S9v" firstAttribute="centerX" secondItem="9bB-Kd-IM9" secondAttribute="centerX" id="rq4-SI-6nu"/>
                             <constraint firstItem="RqM-yS-Te7" firstAttribute="top" secondItem="xbI-zu-BZy" secondAttribute="bottom" constant="40" id="sv1-dS-Hzp"/>
                             <constraint firstItem="zK6-Wi-bZ0" firstAttribute="top" secondItem="ltN-mD-S9v" secondAttribute="bottom" constant="5" id="upG-oR-h81"/>
@@ -260,6 +272,7 @@
                     <navigationItem key="navigationItem" title="Flight Details" id="2W7-ZC-tRv"/>
                     <connections>
                         <outlet property="airlinesLbl" destination="Fr5-iZ-wEo" id="C43-B0-Z6D"/>
+                        <outlet property="delayLbl" destination="OlL-8v-D1g" id="8Ut-Eu-yst"/>
                         <outlet property="estimatedArr" destination="7bh-8b-FBH" id="chj-O0-jEJ"/>
                         <outlet property="estimatedDep" destination="zK6-Wi-bZ0" id="ry4-Md-Nrd"/>
                         <outlet property="flightNumLbl" destination="xbI-zu-BZy" id="TNx-xH-biZ"/>

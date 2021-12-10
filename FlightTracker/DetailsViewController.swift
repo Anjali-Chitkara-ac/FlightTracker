@@ -20,6 +20,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var scheduledDep: UILabel!
     
+    @IBOutlet weak var delayLbl: UILabel!
     @IBOutlet weak var estimatedDep: UILabel!
     var flightDetail : Flight?
     
@@ -35,6 +36,18 @@ class DetailsViewController: UIViewController {
         scheduledDep.text = flightDetail!.scheduledDepartureTime
         estimatedDep.text = flightDetail!.estimatedDepartureTime
 
+        var arrDelay = flightDetail!.arrDelay
+        var depDelay = flightDetail!.depDelay
+        
+        if(arrDelay=="" && depDelay==""){
+            delayLbl.text = "ON TIME"
+            delayLbl.backgroundColor = UIColor.green
+        }
+        else{
+            print("\(arrDelay) \(depDelay)")
+            delayLbl.text = "DELAYED"
+            delayLbl.backgroundColor = UIColor.red
+        }
     }
     
 

@@ -19,5 +19,7 @@ class Flight{
     var flightNumber : String = ""
     var arrivalGate : String = ""
     var airlines : String = ""
+    var depDelay : String = ""
+    var arrDelay : String = ""
     
 }

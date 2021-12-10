@@ -40,7 +40,11 @@ class ViewController: UIViewController{
             
             let url = flightsURL + accessID
             
+            SwiftSpinner.show("Searching for flights")
+            
             AF.request(url).responseJSON {response in
+                
+                SwiftSpinner.hide()
 
                 if (response.error != nil){//there was error
                     print("error : \(response.error)")
@@ -57,8 +61,8 @@ class ViewController: UIViewController{
                 
                 for flight in allFlights{
                     var f = flight.1
-                    var dep = f["arrival"]["iata"]
-                    var arr = f["departure"]["iata"]
+                    var dep = f["departure"]["iata"]
+                    var arr = f["arrival"]["iata"]
                     
                     print("\(dep) \(arr)")
                     if(departure == dep.stringValue && arrival == arr.stringValue){
@@ -68,6 +72,12 @@ class ViewController: UIViewController{
                         var flightNum = f["flight"]["iata"]
     
                         someArr.append(flightNum.rawValue as! String)
+                        
+                        //delays
+                        var depDelay = f["departure"]["delay"].stringValue
+                        var arrDelay = f["departure"]["delay"].stringValue
+                        
+                        print("****** \(arrDelay)           \(depDelay)**********")
                         
                         //create flight object
                         let fl = Flight()
@@ -80,6 +90,8 @@ class ViewController: UIViewController{
                         fl.estimatedArrivalTime = f["arrival"]["estimated"].stringValue
                         fl.scheduledDepartureTime = f["departure"]["scheduled"].stringValue
                         fl.estimatedDepartureTime = f["departure"]["estimated"].stringValue
+                        fl.depDelay = depDelay
+                        fl.arrDelay = arrDelay
                         
                         someFlights.append(fl)
                     }
