@@ -63,6 +63,7 @@ class ViewController: UIViewController{
                     print("\(dep) \(arr)")
                     if(departure == dep.stringValue && arrival == arr.stringValue){
                         print(f)
+                        
                         //add flight to an arr
                         var flightNum = f["flight"]["iata"]
     

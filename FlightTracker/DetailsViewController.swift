@@ -26,14 +26,14 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        routeLbl.text = "\(flightDetail?.departure) -> \(flightDetail?.arrival)"
-        flightNumLbl.text = flightDetail?.flightNumber
-        statusLbl.text = "Status : \(flightDetail?.status)"
-        airlinesLbl.text = flightDetail?.airlines
-        scheduledArr.text = flightDetail?.scheduledArrivalTime
-        estimatedArr.text = flightDetail?.estimatedArrivalTime
-        scheduledDep.text = flightDetail?.scheduledDepartureTime
-        estimatedDep.text = flightDetail?.estimatedDepartureTime
+        routeLbl.text = "\(flightDetail!.departure) -> \(flightDetail!.arrival)"
+        flightNumLbl.text = flightDetail!.flightNumber
+        statusLbl.text = "Status : \(flightDetail!.status)"
+        airlinesLbl.text = flightDetail!.airlines
+        scheduledArr.text = flightDetail!.scheduledArrivalTime
+        estimatedArr.text = flightDetail!.estimatedArrivalTime
+        scheduledDep.text = flightDetail!.scheduledDepartureTime
+        estimatedDep.text = flightDetail!.estimatedDepartureTime
 
     }
     
