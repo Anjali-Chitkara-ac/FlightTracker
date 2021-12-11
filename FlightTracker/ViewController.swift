@@ -77,7 +77,7 @@ class ViewController: UIViewController{
                         var depDelay = f["departure"]["delay"].stringValue
                         var arrDelay = f["departure"]["delay"].stringValue
                         
-                        print("****** \(arrDelay)           \(depDelay)**********")
+                        //print("****** \(arrDelay)           \(depDelay)**********")
                         
                         //create flight object
                         let fl = Flight()

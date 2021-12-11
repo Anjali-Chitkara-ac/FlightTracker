@@ -21,6 +21,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         tblView?.delegate = self
         tblView?.dataSource = self
         
+        self.arrSearch.append(contentsOf: matchingFlights)
         //print(flightNumbers)
     }
     
@@ -33,7 +34,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         //cell.textLabel?.text = flightNumbers[indexPath.row]
         let flight = matchingFlights[indexPath.row]
         
-        cell.textLabel?.text = "\(flight.flightNumber) \(flight.status)"
+        cell.textLabel?.text = "\(flight.flightNumber)      \(flight.status)"
         return cell
     }
     
@@ -48,6 +49,23 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
             let detalisVC = segue.destination as! DetailsViewController
             detalisVC.flightDetail = self.flightDetails
         }
+    }
+    
+    var arrSearch : [Flight] = [Flight]()
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchBar.text!.isEmpty else{
+            //print("user did not tpe anything")
+            matchingFlights = arrSearch
+            tblView.reloadData()
+            return
+        }
+        //user has typed something
+        //print("filter results")
+        matchingFlights = arrSearch.filter({ flight in
+            flight.airlines.lowercased().contains(searchBar.text!.lowercased())
+        })
+        tblView.reloadData()
     }
 
 }

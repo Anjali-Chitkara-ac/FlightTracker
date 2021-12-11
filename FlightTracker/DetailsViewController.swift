@@ -44,7 +44,7 @@ class DetailsViewController: UIViewController {
             delayLbl.backgroundColor = UIColor.green
         }
         else{
-            print("\(arrDelay) \(depDelay)")
+            //print("\(arrDelay) \(depDelay)")
             delayLbl.text = "DELAYED"
             delayLbl.backgroundColor = UIColor.red
         }
