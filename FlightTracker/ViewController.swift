@@ -28,7 +28,7 @@ class ViewController: UIViewController{
     
     let flightsURL = "http://api.aviationstack.com/v1/flights?access_key="
     
-    let accessID = "8777462eb877be66b89cd209bea9addc"
+    let accessID = "2bb06e9e21ff5d440b73f5fa5a2319ca"
     
     func getFlightNums() -> Promise<[Flight]>{
                 
